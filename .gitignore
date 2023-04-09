@@ -1,0 +1,11 @@
+# Ignore Node Modules
+node_modules
+
+# Ignore env file
+.env
+
+# Ignore README.md 
+README.md
+
+*~
+.DS_Store
