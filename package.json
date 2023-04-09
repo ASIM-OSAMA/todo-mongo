@@ -10,6 +10,7 @@
   "author": "ASIM",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "file:../../../../../Users/asime/AppData/Roaming/npm/node_modules/dotenv",
     "express": "file:../../../../../Users/asime/AppData/Roaming/npm/node_modules/express",
     "express-async-handler": "file:../../../../../Users/asime/AppData/Roaming/npm/node_modules/express-async-handler",
     "mongoose": "file:../../../../../Users/asime/AppData/Roaming/npm/node_modules/mongoose"

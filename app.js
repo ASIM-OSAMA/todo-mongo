@@ -7,6 +7,14 @@ app = express()
 
 const port = process.env.port || 5000
 
+// Send the contents of the .env file to the process.env object
+require('dotenv').config()
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log('Connected!'))
+  .catch(err => console.log(err))
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 

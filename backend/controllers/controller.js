@@ -7,6 +7,8 @@ const getTodos = asyncHandler(async (req, res) => {
     .then(result => res.status(200).json({ result }))
     .catch(error => res.status(500).json({ msg: error }))
 })
+// Add a condition, if no todo (result) available , send a message:
+// 'No tasks TODO yet!, Please POST a task TODO.'
 
 const getTodo = asyncHandler(async (req, res) => {
   await todo
