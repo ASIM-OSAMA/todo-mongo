@@ -1,3 +1,4 @@
+const { error } = require('console')
 const todo = require('../models/DBmodel.js')
 const asyncHandler = require('express-async-handler')
 
@@ -35,10 +36,15 @@ const updateTodo = asyncHandler(async (req, res) => {
 })
 
 const deleteTodo = asyncHandler(async (req, res) => {
-  await todo
-    .findOneAndDelete({ _id: req.params.todoID })
-    .then(result => res.status(200).json({ result }))
-    .catch(error => res.status(404).json({ msg: 'Todo not found' }))
+  const todoResult = await todo.findOneAndDelete({ _id: req.params.todoID })
+  if (!todoResult) {
+    res.status(404)
+    throw new Error('Todo not found')
+  } else {
+    res.status(200).json({
+      msg: `TODO with id '${req.params.todoID}' successfully deleted!`
+    })
+  }
 })
 
 module.exports = {

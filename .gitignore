@@ -7,5 +7,10 @@ node_modules
 # Ignore README.md 
 README.md
 
+# Ignore all files starting with a period
+.*
+
+# Ignore all files ending with a tilde
 *~
+
 .DS_Store
