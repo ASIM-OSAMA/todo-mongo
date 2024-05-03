@@ -4,13 +4,22 @@ node_modules
 # Ignore env file
 .env
 
+# Ignore all .log files
+*.log
+
+# Ignore test coverage folder
+coverage
+
+# ignore certificate folder
+cert
+
 # Ignore README.md 
 README.md
 
 # Ignore all files starting with a period
 .*
 
+dummydata.js
+
 # Ignore all files ending with a tilde
 *~
-
-.DS_Store

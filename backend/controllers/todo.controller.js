@@ -1,26 +1,41 @@
 const { error } = require('console')
-const todo = require('../models/DBmodel.js')
+const todo = require('../models/todoDB.js')
 const asyncHandler = require('express-async-handler')
 
+// Get all tasks
 const getTodos = asyncHandler(async (req, res) => {
-  await todo
-    .find({})
-    .then(result => res.status(200).json({ result }))
-    .catch(error => res.status(500).json({ msg: error }))
+  try {
+    const result = await todo.find({})
+    res.status(200).json({ result })
+  } catch (error) {
+    res.status(500).json({ msg: error })
+  }
 })
 // Add a condition, if no todo (result) available , send a message:
 // 'No tasks TODO yet!, Please POST a task TODO.'
 
 const getTodo = asyncHandler(async (req, res) => {
-  await todo
-    .findOne({ _id: req.params.todoID })
-    .then(result => res.status(200).json({ result }))
-    .catch(() => res.status(404).json({ msg: 'Todo not found' }))
+  try {
+    const result = await todo.findOne({ _id: req.params.todoID })
+    console.log('result: ', result)
+    res.status(200).json({ result })
+  } catch (err) {
+    console.log(err)
+    res.json({ error: err })
+    // .catch(() => res.status(404).json({ msg: `Todo not found` }))
+  }
 })
 
+// Add todo
 const createTodo = asyncHandler(async (req, res) => {
   await todo
-    .create(req.body)
+    .create({
+      title: req.body.title,
+      subtitle: req.body.subtitle,
+      todo: req.body.todo,
+      done: req.body.done,
+      user: req.body.user
+    })
     .then(result => res.status(200).json({ result }))
     .catch(error => res.status(500).json({ msg: error }))
 })

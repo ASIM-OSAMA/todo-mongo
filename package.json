@@ -4,18 +4,33 @@
   "description": "TODO CRUD app.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "test": "cross-env jest --coverage --notify --watch --config=./backend/config/jest.config.js",
+    "test:watch": "jest",
+    "start": "nodemon server.js"
   },
   "author": "ASIM",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "file:../../../../../Users/asime/AppData/Roaming/npm/node_modules/dotenv",
-    "express": "file:../../../../../Users/asime/AppData/Roaming/npm/node_modules/express",
-    "express-async-handler": "file:../../../../../Users/asime/AppData/Roaming/npm/node_modules/express-async-handler",
-    "mongoose": "file:../../../../../Users/asime/AppData/Roaming/npm/node_modules/mongoose"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.1",
+    "morgan": "^1.10.0",
+    "response-time": "^2.3.2",
+    "winston": "^3.13.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
-    "nodemon": "file:../../../../../Users/asime/AppData/Roaming/npm/node_modules/nodemon"
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "node-notifier": "^10.0.1",
+    "nodemon": "^3.1.0",
+    "supertest": "^6.3.4"
   }
 }
